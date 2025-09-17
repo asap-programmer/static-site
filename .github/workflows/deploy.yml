@@ -29,6 +29,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          external_repository: username/static-site-pages
+          external_repository: asap-programmer/static-site-pages
           publish_branch: main
           publish_dir: ./site

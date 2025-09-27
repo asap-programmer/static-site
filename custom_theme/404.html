@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+<style>
+    .error-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center error-gradient">
+    <div class="max-w-md w-full text-center text-white">
+        <div class="mb-8">
+            <h1 class="text-9xl font-bold mb-4">404</h1>
+            <h2 class="text-3xl font-semibold mb-6">Page Not Found</h2>
+            <p class="text-xl text-blue-100 mb-8">
+                Sorry, the page you are looking for doesn't exist or has been moved.
+            </p>
+        </div>
+
+        <div class="space-y-4">
+            <a href="{{ nav.homepage.url|url }}"
+               class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                Go Home
+            </a>
+            <div class="text-blue-100">
+                <p>Or try one of these popular pages:</p>
+                <div class="mt-4 space-y-2">
+                    {% for nav_item in nav %}
+                        {% if not nav_item.active %}
+                            <a href="{{ nav_item.url|url }}"
+                               class="block text-blue-200 hover:text-white transition-colors">
+                                {{ nav_item.title }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

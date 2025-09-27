@@ -1,13 +1,41 @@
-name: Deploy MkDocs site
+name: Build and Deploy MkDocs Site
 
 on:
   push:
     branches:
-      - main   # запускать при пуше в main
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build-deploy:
+  test:
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Validate HTML
+        run: |
+          mkdocs build
+          # Install html5validator for HTML validation
+          pip install html5validator
+          html5validator --root site --format text --ignore "script[src*='unpkg.com']"
+
+  build-deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Checkout source repo
@@ -16,16 +44,39 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install Python dependencies
         run: |
-          pip install mkdocs mkdocs-material
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install PostCSS dependencies
+        run: |
+          npm init -y
+          npm install postcss postcss-cli autoprefixer cssnano
+
+      - name: Process CSS with PostCSS
+        run: |
+          npx postcss custom_theme/assets/css/custom.css -o custom_theme/assets/css/custom.min.css --use autoprefixer --use cssnano
 
       - name: Build site
         run: mkdocs build
 
-      - name: Deploy to GitHub Pages repo
+      - name: Minify HTML, CSS, and JS
+        run: |
+          # Install html-minifier-terser for additional minification
+          npm install -g html-minifier-terser
+          # Minify HTML files
+          find site -name "*.html" -exec html-minifier-terser --collapse-whitespace --remove-comments --minify-css --minify-js {} -o {} \;
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}

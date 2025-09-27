@@ -1,0 +1,26 @@
+{
+  "name": "static-site-python",
+  "version": "1.0.0",
+  "description": "A modern static site built with MkDocs and custom React theme",
+  "scripts": {
+    "build:css": "postcss custom_theme/assets/css/custom.css -o custom_theme/assets/css/custom.min.css",
+    "watch:css": "postcss custom_theme/assets/css/custom.css -o custom_theme/assets/css/custom.min.css --watch",
+    "minify:html": "html-minifier-terser --collapse-whitespace --remove-comments --minify-css --minify-js"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1",
+    "html-minifier-terser": "^7.2.0",
+    "postcss": "^8.4.32",
+    "postcss-cli": "^11.0.0"
+  },
+  "keywords": [
+    "mkdocs",
+    "static-site",
+    "react",
+    "tailwind",
+    "documentation"
+  ],
+  "author": "Ilvir Nizaev",
+  "license": "MIT"
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="{{ lang or 'en' }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ config.site_description or 'Static site generated with MkDocs and custom React theme' }}">
+    <meta name="author" content="{{ config.site_author or 'Ilvir Nizaev' }}">
+    <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-{{ material_version }}">
+
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+
+    <link rel="canonical" href="{{ page.canonical_url }}">
+    <link rel="icon" href="{{ config.theme.favicon or 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>' }}">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ 'assets/css/custom.css'|url }}">
+
+    {% block extrahead %}{% endblock %}
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="{{ nav.homepage.url|url }}" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors">
+                        {{ config.site_name }}
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    {% for nav_item in nav %}
+                        <a href="{{ nav_item.url|url }}"
+                           class="text-gray-600 hover:text-blue-600 transition-colors font-medium
+                                  {% if nav_item.active %}text-blue-600{% endif %}">
+                            {{ nav_item.title }}
+                        </a>
+                    {% endfor %}
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                {% for nav_item in nav %}
+                    <a href="{{ nav_item.url|url }}"
+                       class="block px-3 py-2 text-gray-600 hover:text-blue-600 transition-colors
+                              {% if nav_item.active %}text-blue-600 bg-blue-50{% endif %}">
+                        {{ nav_item.title }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Sidebar -->
+            <aside class="lg:w-64 flex-shrink-0">
+                <div class="bg-white rounded-lg shadow-sm p-6 sticky top-8">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Contents</h3>
+                    <nav class="space-y-2">
+                        {% for toc_item in page.toc %}
+                            <a href="{{ toc_item.url }}"
+                               class="block text-sm text-gray-600 hover:text-blue-600 transition-colors
+                                      {% if toc_item.active %}text-blue-600 font-medium{% endif %}">
+                                {{ toc_item.title }}
+                            </a>
+                        {% endfor %}
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- Content -->
+            <article class="flex-1 min-w-0">
+                <div class="bg-white rounded-lg shadow-sm p-8">
+                    {% if page.title %}
+                        <h1 class="text-3xl font-bold text-gray-900 mb-6">{{ page.title }}</h1>
+                    {% endif %}
+
+                    <div class="prose prose-lg max-w-none">
+                        {{ page.content }}
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">{{ config.site_name }}</h3>
+                    <p class="text-gray-400">{{ config.site_description or 'A modern static site built with MkDocs and custom React theme.' }}</p>
+                </div>
+                <div>
+                    <h4 class="text-md font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        {% for nav_item in nav %}
+                            <li>
+                                <a href="{{ nav_item.url|url }}" class="text-gray-400 hover:text-white transition-colors">
+                                    {{ nav_item.title }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-md font-semibold mb-4">Contact</h4>
+                    <p class="text-gray-400">Author: {{ config.site_author or 'Ilvir Nizaev' }}</p>
+                    <p class="text-gray-400">Built with MkDocs & React</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 {{ config.site_name }}. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- React and custom JS -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="{{ 'assets/js/custom.js'|url }}"></script>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

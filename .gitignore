@@ -142,6 +142,28 @@ venv.bak/
 
 # mkdocs documentation
 
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# Build outputs
+custom_theme/assets/css/custom.min.css
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
 
 # mypy
 .mypy_cache/

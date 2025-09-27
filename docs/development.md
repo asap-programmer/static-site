@@ -168,7 +168,7 @@ The main page template extends the base template with additional features:
 </section>
 
 <!-- Features Section -->
-<section id="features" class="py-16">
+<section id="dev-features" class="py-16">
     <!-- Features content -->
 </section>
 

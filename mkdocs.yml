@@ -12,7 +12,7 @@ theme:
 plugins:
   - search
   - minify:
-      minify_html: true
+      minify_html: false
       minify_js: true
       minify_css: true
 
@@ -26,7 +26,12 @@ markdown_extensions:
       permalink: true
   - codehilite:
       guess_lang: true
-  - pymdownx.superfences
+      use_pygments: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.emoji:

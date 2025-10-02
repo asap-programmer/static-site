@@ -12,6 +12,7 @@
     <link rel="canonical" href="{{ page.canonical_url }}">
     <link rel="icon" href="{{ config.theme.favicon or 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48dGV4dCB5PSIuOWVtIiBmb250LXNpemU9IjkwIj7wn5K0PC90ZXh0Pjwvc3ZnPg==' }}">
 
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -40,6 +41,8 @@
                         </a>
                     {% endfor %}
                 </nav>
+				<!-- Theme toggle mount point -->
+				<div id="theme-toggle" class="hidden md:block"></div>
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

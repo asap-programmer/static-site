@@ -25,12 +25,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Build and validate
+      - name: Set up Java (required for html5validator)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build site
+        run: mkdocs build
+
+      - name: Validate HTML with html5validator
         run: |
-          mkdocs build
-          # Note: HTML validation is disabled due to MkDocs generated HTML structure
-          # The HTML is valid for browsers but may not pass strict W3C validation
-          echo "HTML validation skipped - MkDocs generates valid browser HTML"
+          html5validator --root site --ignore "^search/|^sitemap\\.xml|^sitemap\\.xml\\.gz"
 
   build-deploy:
     needs: test

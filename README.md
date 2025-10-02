@@ -1,264 +1,264 @@
-# Static Site Python - MkDocs with React & Tailwind
+# Static Site Python - MkDocs с React & Tailwind
 
-A modern, responsive static site generator built with MkDocs, featuring a custom React theme and Tailwind CSS styling. This project demonstrates how to create beautiful documentation sites with modern frontend technologies.
+Современный адаптивный генератор статических сайтов, построенный на MkDocs, с кастомной React темой и стилизацией Tailwind CSS. Этот проект демонстрирует, как создавать красивые сайты документации с использованием современных фронтенд технологий.
 
-## 🌟 Live Demo
+## 🌟 Живая демонстрация
 
 **GitHub Pages**: [https://asap-programmer.github.io/static-site-pages](https://asap-programmer.github.io/static-site-pages)
 
-## 🚀 Features
+## 🚀 Возможности
 
-- **Custom React Theme**: Interactive components powered by React 18
-- **Tailwind CSS**: Modern, utility-first CSS framework
-- **Responsive Design**: Mobile-first approach with perfect cross-device compatibility
-- **PostCSS Processing**: Advanced CSS processing with autoprefixer and minification
-- **HTML Validation**: Automated HTML validation in CI/CD pipeline
-- **Performance Optimized**: Minified HTML, CSS, and JavaScript
-- **SEO Ready**: Proper meta tags, semantic HTML, and structured data
-- **Accessibility**: WCAG compliant design patterns
-- **GitHub Actions**: Automated build, test, and deployment pipeline
+- **Кастомная React тема**: Интерактивные компоненты на React 18
+- **Tailwind CSS**: Современный utility-first CSS фреймворк
+- **Адаптивный дизайн**: Mobile-first подход с идеальной совместимостью между устройствами
+- **PostCSS обработка**: Продвинутая обработка CSS с автопрефиксером и минификацией
+- **HTML валидация**: Автоматическая валидация HTML в CI/CD пайплайне
+- **Оптимизация производительности**: Минифицированные HTML, CSS и JavaScript
+- **SEO готовность**: Правильные мета-теги, семантический HTML и структурированные данные
+- **Доступность**: Дизайн-паттерны, соответствующие WCAG
+- **GitHub Actions**: Автоматизированный пайплайн сборки, тестирования и развертывания
 
-## 🛠️ Technology Stack
+## 🛠️ Технологический стек
 
 ### Backend
-- **MkDocs**: Static site generator for Python
-- **Jinja2**: Template engine for HTML generation
-- **Python 3.11+**: Runtime environment
+- **MkDocs**: Генератор статических сайтов для Python
+- **Jinja2**: Шаблонизатор для генерации HTML
+- **Python 3.11+**: Среда выполнения
 
 ### Frontend
-- **React 18**: Interactive UI components
-- **Tailwind CSS**: Utility-first CSS framework
-- **PostCSS**: CSS processing and optimization
-- **Vanilla JavaScript**: Custom interactions and animations
+- **React 18**: Интерактивные UI компоненты
+- **Tailwind CSS**: Utility-first CSS фреймворк
+- **PostCSS**: Обработка и оптимизация CSS
+- **Vanilla JavaScript**: Кастомные взаимодействия и анимации
 
 ### DevOps
-- **GitHub Actions**: CI/CD pipeline
-- **GitHub Pages**: Static site hosting
-- **Node.js**: Frontend build tools
+- **GitHub Actions**: CI/CD пайплайн
+- **GitHub Pages**: Хостинг статических сайтов
+- **Node.js**: Инструменты сборки фронтенда
 
-## 📁 Project Structure
+## 📁 Структура проекта
 
 ```
 static-site-python/
-├── custom_theme/              # Custom MkDocs theme
-│   ├── base.html             # Base template with header/footer
-│   ├── main.html             # Main page template with hero section
-│   └── assets/               # Static assets
+├── custom_theme/              # Кастомная тема MkDocs
+│   ├── base.html             # Базовый шаблон с хедером/футером
+│   ├── main.html             # Шаблон главной страницы с hero секцией
+│   └── assets/               # Статические ресурсы
 │       ├── css/
-│       │   └── custom.css    # Custom CSS with typography improvements
+│       │   └── custom.css    # Кастомный CSS с улучшениями типографики
 │       └── js/
-│           └── custom.js     # React components and interactions
-├── docs/                     # Documentation content
-│   └── index.md             # Homepage content
-├── .github/workflows/        # GitHub Actions workflows
-│   └── deploy.yml           # Build and deployment pipeline
-├── mkdocs.yml               # MkDocs configuration
-├── requirements.txt         # Python dependencies
-├── package.json             # Node.js dependencies
-├── postcss.config.js        # PostCSS configuration
-└── README.md               # This file
+│           └── custom.js     # React компоненты и взаимодействия
+├── docs/                     # Контент документации
+│   └── index.md             # Контент главной страницы
+├── .github/workflows/        # GitHub Actions воркфлоу
+│   └── deploy.yml           # Пайплайн сборки и развертывания
+├── mkdocs.yml               # Конфигурация MkDocs
+├── requirements.txt         # Python зависимости
+├── package.json             # Node.js зависимости
+├── postcss.config.js        # Конфигурация PostCSS
+└── README.md               # Этот файл
 ```
 
-## 🔧 Build Process
+## 🔧 Процесс сборки
 
-The project uses a sophisticated multi-stage build pipeline:
+Проект использует сложный многоэтапный пайплайн сборки:
 
-### 1. Testing Phase
-- **HTML Validation**: Ensures all generated HTML is valid
-- **Dependency Installation**: Installs Python and Node.js dependencies
-- **Build Verification**: Tests the MkDocs build process
+### 1. Фаза тестирования
+- **HTML валидация**: Обеспечивает валидность всего генерируемого HTML
+- **Установка зависимостей**: Устанавливает Python и Node.js зависимости
+- **Проверка сборки**: Тестирует процесс сборки MkDocs
 
-### 2. Build Phase
-- **CSS Processing**: PostCSS with autoprefixer and cssnano
-- **Static Generation**: MkDocs builds the final site
-- **Minification**: HTML, CSS, and JavaScript minification
-- **Optimization**: Image optimization and asset bundling
+### 2. Фаза сборки
+- **Обработка CSS**: PostCSS с автопрефиксером и cssnano
+- **Статическая генерация**: MkDocs собирает финальный сайт
+- **Минификация**: Минификация HTML, CSS и JavaScript
+- **Оптимизация**: Оптимизация изображений и объединение ресурсов
 
-### 3. Deployment Phase
-- **GitHub Pages**: Automatic deployment to static hosting
-- **CDN Integration**: Optimized asset delivery
-- **Cache Headers**: Proper caching configuration
+### 3. Фаза развертывания
+- **GitHub Pages**: Автоматическое развертывание на статический хостинг
+- **CDN интеграция**: Оптимизированная доставка ресурсов
+- **Заголовки кэширования**: Правильная конфигурация кэширования
 
-## 🚀 Getting Started
+## 🚀 Начало работы
 
-### Prerequisites
+### Предварительные требования
 
-- Python 3.11 or higher
-- Node.js 18 or higher
+- Python 3.11 или выше
+- Node.js 18 или выше
 - Git
-- GitHub account (for deployment)
+- Аккаунт GitHub (для развертывания)
 
-### Installation
+### Установка
 
-1. **Clone the repository**:
+1. **Клонируйте репозиторий**:
 ```bash
 git clone https://github.com/asap-programmer/static-site-python.git
 cd static-site-python
 ```
 
-2. **Install Python dependencies**:
+2. **Установите Python зависимости**:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Install Node.js dependencies**:
+3. **Установите Node.js зависимости**:
 ```bash
 npm install
 ```
 
-### Development
+### Разработка
 
-1. **Start the development server**:
+1. **Запустите сервер разработки**:
 ```bash
 mkdocs serve
 ```
-The site will be available at `http://localhost:8000`
+Сайт будет доступен по адресу `http://localhost:8000`
 
-2. **Process CSS with PostCSS** (optional):
+2. **Обработайте CSS с PostCSS** (опционально):
 ```bash
 npm run build:css
 ```
 
-3. **Build the site**:
+3. **Соберите сайт**:
 ```bash
 mkdocs build
 ```
 
-### Customization
+### Настройка
 
-#### Theme Customization
-- **HTML Templates**: Modify files in `custom_theme/`
-- **CSS Styles**: Edit `custom_theme/assets/css/custom.css`
-- **JavaScript**: Update `custom_theme/assets/js/custom.js`
-- **Configuration**: Adjust settings in `mkdocs.yml`
+#### Настройка темы
+- **HTML шаблоны**: Измените файлы в `custom_theme/`
+- **CSS стили**: Отредактируйте `custom_theme/assets/css/custom.css`
+- **JavaScript**: Обновите `custom_theme/assets/js/custom.js`
+- **Конфигурация**: Настройте параметры в `mkdocs.yml`
 
-#### Content Management
-- **Pages**: Add markdown files in `docs/`
-- **Navigation**: Update navigation in `mkdocs.yml`
-- **Assets**: Add images and files to `docs/`
+#### Управление контентом
+- **Страницы**: Добавьте markdown файлы в `docs/`
+- **Навигация**: Обновите навигацию в `mkdocs.yml`
+- **Ресурсы**: Добавьте изображения и файлы в `docs/`
 
 ## 📋 GitHub Actions Workflow
 
-The project includes a comprehensive CI/CD pipeline:
+Проект включает комплексный CI/CD пайплайн:
 
-### Workflow Features
-- **Multi-stage Pipeline**: Separate test and build jobs
-- **HTML Validation**: Automated HTML validation
-- **PostCSS Processing**: CSS optimization and vendor prefixing
-- **Minification**: HTML, CSS, and JavaScript minification
-- **Conditional Deployment**: Only deploys from main branch
-- **External Repository**: Deploys to separate GitHub Pages repository
+### Возможности Workflow
+- **Многоэтапный пайплайн**: Отдельные задачи тестирования и сборки
+- **HTML валидация**: Автоматическая валидация HTML
+- **PostCSS обработка**: Оптимизация CSS и добавление вендорных префиксов
+- **Минификация**: Минификация HTML, CSS и JavaScript
+- **Условное развертывание**: Развертывание только из main ветки
+- **Внешний репозиторий**: Развертывание в отдельный репозиторий GitHub Pages
 
-### Workflow Steps
-1. **Checkout**: Clone the repository
-2. **Setup**: Install Python and Node.js
-3. **Dependencies**: Install all required packages
-4. **Validation**: Validate HTML output
-5. **Processing**: Process CSS with PostCSS
-6. **Build**: Generate static site with MkDocs
-7. **Minification**: Minify all assets
-8. **Deploy**: Deploy to GitHub Pages
+### Шаги Workflow
+1. **Checkout**: Клонирование репозитория
+2. **Setup**: Установка Python и Node.js
+3. **Dependencies**: Установка всех необходимых пакетов
+4. **Validation**: Валидация HTML вывода
+5. **Processing**: Обработка CSS с PostCSS
+6. **Build**: Генерация статического сайта с MkDocs
+7. **Minification**: Минификация всех ресурсов
+8. **Deploy**: Развертывание на GitHub Pages
 
-## 🎨 Custom Theme Features
+## 🎨 Возможности кастомной темы
 
-### Design System
-- **Color Palette**: Professional blue and gray color scheme
-- **Typography**: Optimized font stack with proper hierarchy
-- **Spacing**: Consistent spacing using Tailwind's spacing scale
-- **Components**: Reusable UI components
+### Дизайн-система
+- **Цветовая палитра**: Профессиональная сине-серая цветовая схема
+- **Типографика**: Оптимизированный стек шрифтов с правильной иерархией
+- **Отступы**: Последовательные отступы с использованием шкалы отступов Tailwind
+- **Компоненты**: Переиспользуемые UI компоненты
 
-### Interactive Elements
-- **Mobile Menu**: Responsive navigation with smooth animations
-- **Theme Toggle**: Dark/light mode switching (React component)
-- **Search Box**: Interactive search functionality (React component)
-- **Smooth Scrolling**: Enhanced navigation experience
-- **Back to Top**: Floating action button
+### Интерактивные элементы
+- **Мобильное меню**: Адаптивная навигация с плавными анимациями
+- **Переключатель темы**: Переключение темной/светлой темы (React компонент)
+- **Поисковая строка**: Интерактивная функциональность поиска (React компонент)
+- **Плавная прокрутка**: Улучшенный опыт навигации
+- **Назад к началу**: Плавающая кнопка действия
 
-### Performance Optimizations
-- **Lazy Loading**: Images and components load on demand
-- **Code Splitting**: Optimized JavaScript loading
-- **CSS Optimization**: PostCSS processing and minification
-- **Asset Compression**: Minified and compressed assets
+### Оптимизации производительности
+- **Ленивая загрузка**: Изображения и компоненты загружаются по требованию
+- **Разделение кода**: Оптимизированная загрузка JavaScript
+- **Оптимизация CSS**: PostCSS обработка и минификация
+- **Сжатие ресурсов**: Минифицированные и сжатые ресурсы
 
-## 📊 Performance Metrics
+## 📊 Метрики производительности
 
-- **Lighthouse Score**: 95+ across all categories
-- **First Contentful Paint**: < 1.5s
-- **Largest Contentful Paint**: < 2.5s
+- **Lighthouse Score**: 95+ по всем категориям
+- **First Contentful Paint**: < 1.5с
+- **Largest Contentful Paint**: < 2.5с
 - **Cumulative Layout Shift**: < 0.1
-- **Time to Interactive**: < 3s
+- **Time to Interactive**: < 3с
 
-## 🔍 SEO Features
+## 🔍 SEO возможности
 
-- **Meta Tags**: Comprehensive meta tag implementation
-- **Structured Data**: JSON-LD structured data
-- **Sitemap**: Automatic sitemap generation
-- **Robots.txt**: Search engine optimization
-- **Open Graph**: Social media sharing optimization
-- **Twitter Cards**: Twitter sharing optimization
+- **Мета-теги**: Комплексная реализация мета-тегов
+- **Структурированные данные**: JSON-LD структурированные данные
+- **Карта сайта**: Автоматическая генерация карты сайта
+- **Robots.txt**: Оптимизация для поисковых систем
+- **Open Graph**: Оптимизация для социальных сетей
+- **Twitter Cards**: Оптимизация для Twitter
 
-## ♿ Accessibility Features
+## ♿ Возможности доступности
 
-- **WCAG 2.1 AA Compliance**: Meets accessibility standards
-- **Keyboard Navigation**: Full keyboard accessibility
-- **Screen Reader Support**: Proper ARIA labels and roles
-- **Color Contrast**: High contrast ratios
-- **Focus Management**: Visible focus indicators
-- **Semantic HTML**: Proper HTML structure
+- **Соответствие WCAG 2.1 AA**: Соответствует стандартам доступности
+- **Навигация с клавиатуры**: Полная доступность с клавиатуры
+- **Поддержка скрин-ридеров**: Правильные ARIA метки и роли
+- **Контрастность цветов**: Высокие коэффициенты контрастности
+- **Управление фокусом**: Видимые индикаторы фокуса
+- **Семантический HTML**: Правильная HTML структура
 
-## 🧪 Testing
+## 🧪 Тестирование
 
-### Automated Testing
-- **HTML Validation**: W3C HTML validation
-- **CSS Validation**: CSS linting and validation
-- **JavaScript Testing**: ESLint and basic functionality tests
-- **Performance Testing**: Lighthouse CI integration
+### Автоматизированное тестирование
+- **HTML валидация**: W3C HTML валидация
+- **CSS валидация**: CSS линтинг и валидация
+- **JavaScript тестирование**: ESLint и базовые функциональные тесты
+- **Тестирование производительности**: Интеграция Lighthouse CI
 
-### Manual Testing
-- **Cross-browser Testing**: Chrome, Firefox, Safari, Edge
-- **Device Testing**: Mobile, tablet, desktop
-- **Accessibility Testing**: Screen reader and keyboard navigation
+### Ручное тестирование
+- **Кроссбраузерное тестирование**: Chrome, Firefox, Safari, Edge
+- **Тестирование устройств**: Мобильные, планшеты, десктопы
+- **Тестирование доступности**: Скрин-ридер и навигация с клавиатуры
 
-## 📝 License
+## 📝 Лицензия
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Этот проект лицензирован под MIT License - см. файл [LICENSE](LICENSE) для деталей.
 
-## 👨‍💻 Author
+## 👨‍💻 Автор
 
-**Ilvir Nizaev** - *Initial work* - [GitHub](https://github.com/asap-programmer)
+**Ильвир Низаев** - *Первоначальная работа* - [GitHub](https://github.com/asap-programmer)
 
-## 🙏 Acknowledgments
+## 🙏 Благодарности
 
-- **MkDocs Team**: For the excellent static site generator
-- **Tailwind CSS**: For the utility-first CSS framework
-- **React Team**: For the powerful UI library
-- **GitHub**: For providing free hosting with GitHub Pages
-- **PostCSS Community**: For the CSS processing tools
+- **Команда MkDocs**: За отличный генератор статических сайтов
+- **Tailwind CSS**: За utility-first CSS фреймворк
+- **Команда React**: За мощную UI библиотеку
+- **GitHub**: За предоставление бесплатного хостинга с GitHub Pages
+- **Сообщество PostCSS**: За инструменты обработки CSS
 
-## 📚 Additional Resources
+## 📚 Дополнительные ресурсы
 
-- [MkDocs Documentation](https://www.mkdocs.org/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [React Documentation](https://reactjs.org/docs)
-- [PostCSS Documentation](https://postcss.org/)
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [Документация MkDocs](https://www.mkdocs.org/)
+- [Документация Tailwind CSS](https://tailwindcss.com/docs)
+- [Документация React](https://reactjs.org/docs)
+- [Документация PostCSS](https://postcss.org/)
+- [Документация GitHub Actions](https://docs.github.com/en/actions)
 
-## 🤝 Contributing
+## 🤝 Вклад в проект
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+1. Форкните репозиторий
+2. Создайте ветку для функции (`git checkout -b feature/amazing-feature`)
+3. Зафиксируйте ваши изменения (`git commit -m 'Add some amazing feature'`)
+4. Отправьте в ветку (`git push origin feature/amazing-feature`)
+5. Откройте Pull Request
 
-## 📞 Support
+## 📞 Поддержка
 
-If you have any questions or need help with this project, please:
+Если у вас есть вопросы или нужна помощь с этим проектом, пожалуйста:
 
-1. Check the [Issues](https://github.com/asap-programmer/static-site-python/issues) page
-2. Create a new issue if your question isn't already answered
-3. Contact the author via GitHub
+1. Проверьте страницу [Issues](https://github.com/asap-programmer/static-site-python/issues)
+2. Создайте новый issue, если ваш вопрос еще не был задан
+3. Свяжитесь с автором через GitHub
 
 ---
 
-**Built with ❤️ using MkDocs, React, and Tailwind CSS**
+**Создано с ❤️ используя MkDocs, React и Tailwind CSS**

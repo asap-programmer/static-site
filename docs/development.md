@@ -16,23 +16,27 @@ Before starting development, ensure you have the following installed:
 ### Environment Setup
 
 1. **Clone the repository**:
+
 ```bash
 git clone https://github.com/asap-programmer/static-site-python.git
 cd static-site-python
 ```
 
 2. **Create a virtual environment**:
+
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
 3. **Install Python dependencies**:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 4. **Install Node.js dependencies**:
+
 ```bash
 npm install
 ```
@@ -79,9 +83,9 @@ CSS processing is handled by PostCSS with the following configuration:
 ```javascript
 module.exports = {
   plugins: [
-    require('autoprefixer'),
-    require('cssnano')({
-      preset: 'default',
+    require("autoprefixer"),
+    require("cssnano")({
+      preset: "default",
     }),
   ],
 };
@@ -89,11 +93,11 @@ module.exports = {
 
 ### Build Commands
 
-| Command | Description |
-|---------|-------------|
-| `mkdocs serve` | Start development server |
-| `mkdocs build` | Build static site |
-| `npm run build:css` | Process CSS with PostCSS |
+| Command             | Description                 |
+| ------------------- | --------------------------- |
+| `mkdocs serve`      | Start development server    |
+| `mkdocs build`      | Build static site           |
+| `npm run build:css` | Process CSS with PostCSS    |
 | `npm run watch:css` | Watch CSS files for changes |
 
 ## 🎨 Theme Development
@@ -122,27 +126,27 @@ The base template provides the overall page structure:
 ```html
 <!DOCTYPE html>
 <html lang="{{ lang or 'en' }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}
+    </title>
     <!-- Additional head content -->
-</head>
-<body>
+  </head>
+  <body>
     <!-- Header -->
     <header>...</header>
 
     <!-- Main content -->
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+    <main>{% block content %}{% endblock %}</main>
 
     <!-- Footer -->
     <footer>...</footer>
 
     <!-- Scripts -->
     <script src="{{ 'assets/js/custom.js'|url }}"></script>
-</body>
+  </body>
 </html>
 ```
 
@@ -151,32 +155,26 @@ The base template provides the overall page structure:
 The main page template extends the base template with additional features:
 
 ```html
-{% extends "base.html" %}
-
-{% block extrahead %}
+{% extends "base.html" %} {% block extrahead %}
 <style>
-    .hero-gradient {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
+  .hero-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
 </style>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <!-- Hero Section -->
 <section class="hero-gradient text-white py-20 mb-16">
-    <!-- Hero content -->
+  <!-- Hero content -->
 </section>
 
 <!-- Features Section -->
 <section id="dev-features" class="py-16">
-    <!-- Features content -->
+  <!-- Features content -->
 </section>
 
 <!-- Content Section -->
 <section class="py-16 bg-gray-50">
-    <div class="bg-white rounded-lg shadow-sm p-8">
-        {{ super() }}
-    </div>
+  <div class="bg-white rounded-lg shadow-sm p-8">{{ super() }}</div>
 </section>
 {% endblock %}
 ```
@@ -210,24 +208,29 @@ The theme includes several React components:
 ```javascript
 // Theme Toggle Component
 function ThemeToggle() {
-    const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
-    const toggleTheme = () => {
-        setIsDark(!isDark);
-        if (!isDark) {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-        }
-    };
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+    if (!isDark) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
 
-    return React.createElement('button', {
-        onClick: toggleTheme,
-        className: 'p-2 rounded-lg bg-gray-200 hover:bg-gray-300 transition-colors',
-        'aria-label': 'Toggle theme'
-    }, isDark ? '☀️' : '🌙');
+  return React.createElement(
+    "button",
+    {
+      onClick: toggleTheme,
+      className:
+        "p-2 rounded-lg bg-gray-200 hover:bg-gray-300 transition-colors",
+      "aria-label": "Toggle theme",
+    },
+    isDark ? "☀️" : "🌙"
+  );
 }
 ```
 
@@ -244,6 +247,7 @@ function ThemeToggle() {
 ### Local Development
 
 1. **Start the development server**:
+
 ```bash
 mkdocs serve
 ```
@@ -259,11 +263,13 @@ mkdocs serve
 1. **Edit CSS files** in `custom_theme/assets/css/`
 
 2. **Process with PostCSS**:
+
 ```bash
 npm run build:css
 ```
 
 3. **Watch for changes**:
+
 ```bash
 npm run watch:css
 ```
@@ -271,11 +277,13 @@ npm run watch:css
 ### Testing
 
 1. **Build the site**:
+
 ```bash
 mkdocs build
 ```
 
 2. **Validate HTML**:
+
 ```bash
 html5validator --root site
 ```
@@ -289,11 +297,13 @@ html5validator --root site
 The deployment pipeline includes:
 
 1. **Testing Phase**:
+
    - HTML validation
    - Dependency installation
    - Build verification
 
 2. **Build Phase**:
+
    - CSS processing with PostCSS
    - Static site generation
    - Asset minification
@@ -326,7 +336,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install dependencies
         run: |
@@ -423,11 +433,13 @@ pymdown-extensions>=10.0.0
 ### Common Issues
 
 1. **Build Failures**:
+
    - Check Python and Node.js versions
    - Verify all dependencies are installed
    - Check for syntax errors in templates
 
 2. **CSS Issues**:
+
    - Verify PostCSS configuration
    - Check for CSS syntax errors
    - Ensure Tailwind CSS is loaded

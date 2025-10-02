@@ -33,17 +33,14 @@ This project demonstrates the power of combining MkDocs with modern frontend tec
 ### Installation
 
 1. Clone the repository:
-```bash
-git clone https://github.com/asap-programmer/static-site-python.git
-cd static-site-python
-```
+   git clone https://github.com/asap-programmer/static-site-python.git
+   cd static-site-python
 
 2. Install Python dependencies:
-```bash
-pip install -r requirements.txt
-```
+   pip install -r requirements.txt
 
 3. Install Node.js dependencies:
+
 ```bash
 npm install
 ```
@@ -51,16 +48,19 @@ npm install
 ### Development
 
 Start the development server:
+
 ```bash
 mkdocs serve
 ```
 
 Build the site:
+
 ```bash
 mkdocs build
 ```
 
 Process CSS with PostCSS:
+
 ```bash
 npm run build:css
 ```
@@ -109,7 +109,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Ilvir Nizaev** - *Initial work* - [GitHub](https://github.com/asap-programmer)
+**Ilvir Nizaev** - _Initial work_ - [GitHub](https://github.com/asap-programmer)
 
 ## 🙏 Acknowledgments
 
